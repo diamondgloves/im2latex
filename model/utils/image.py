@@ -17,16 +17,10 @@ def get_max_shape(arrays):
 
     """
     shapes = list(map(lambda x: list(x.shape), arrays))  #list() out of map() is for python3
-    # for ar in arrays:
-        # print(list(ar.shape))
-        # input()
     ndim = len(arrays[0].shape)
     max_shape = []
     for d in range(ndim):
         max_shape += [max(shapes, key=lambda x: x[d])[d]]
-        if list(shapes)==[]:
-            print(shapes)
-            input()
     return max_shape
 
 
