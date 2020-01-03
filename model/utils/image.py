@@ -1,11 +1,13 @@
+import os
 import numpy as np
+import os
+import PIL
+from PIL import Image
 from multiprocessing import Pool
 
-import PIL
-import numpy as np
-from PIL import Image
 
 from .general import run, get_files, delete_file, init_dir
+
 
 TIMEOUT = 10
 
@@ -16,11 +18,12 @@ def get_max_shape(arrays):
         images: list of arrays
 
     """
-    shapes = list(map(lambda x: list(x.shape), arrays))  #list() out of map() is for python3
+    shapes = map(lambda x: list(x.shape), arrays)
     ndim = len(arrays[0].shape)
     max_shape = []
     for d in range(ndim):
         max_shape += [max(shapes, key=lambda x: x[d])[d]]
+
     return max_shape
 
 
@@ -111,10 +114,10 @@ def crop_image(img, output_path):
         output_path: (string) path to output image
 
     """
-    old_im = Image.open(img).convert('L')    # 'L': 8 bits per pixel
+    old_im = Image.open(img).convert('L')
     img_data = np.asarray(old_im, dtype=np.uint8) # height, width
     nnz_inds = np.where(img_data!=255)
-    if len(nnz_inds[0]) == 0:     # empty image
+    if len(nnz_inds[0]) == 0:
         old_im.save(output_path)
         return False
 
@@ -181,7 +184,7 @@ def convert_to_png(formula, dir_output, name, quality=100, density=200,
 
         return "{}.png".format(name)
 
-    except (Exception, e):
+    except Exception, e:
         print(e)
         clean(dir_output, name)
         return False

@@ -1,13 +1,14 @@
-# from imageio import imread
-import os
-
 from scipy.misc import imread
+import PIL
+from PIL import Image
+
 
 from model.img2seq import Img2SeqModel
 from model.utils.general import Config, run
+from model.utils.text import Vocab
 from model.utils.image import greyscale, crop_image, pad_image, \
     downsample_image, TIMEOUT
-from model.utils.text import Vocab
+
 
 
 def interactive_shell(model):
@@ -29,9 +30,7 @@ input> data/images_test/0.png""")
 
         if img_path == "exit":
             break
-        if not os.path.exists(img_path):
-            print('image not exists')
-            continue
+
         if img_path[-3:] == "png":
             img = imread(img_path)
 
@@ -64,8 +63,7 @@ input> data/images_test/0.png""")
 
 if __name__ == "__main__":
     # restore config and model
-    # dir_output = "results/small/"
-    dir_output = "results/full/"
+    dir_output = "results/small/"
     config_vocab = Config(dir_output + "vocab.json")
     config_model = Config(dir_output + "model.json")
     vocab = Vocab(config_vocab)

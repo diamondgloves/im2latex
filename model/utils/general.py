@@ -1,15 +1,14 @@
-import json
-import logging
 import os
-import subprocess
-import sys
+import numpy as np
 import time
+import logging
+import sys
+import subprocess, shlex
+from shutil import copyfile
+import json
+from threading import Timer
 from os import listdir
 from os.path import isfile, join
-from shutil import copyfile
-from threading import Timer
-
-import numpy as np
 
 
 def minibatches(data_generator, minibatch_size):
@@ -94,7 +93,7 @@ class Config():
             source: path to json file or dict
         """
         self.source = source
-        self.export_name = 'default_config'
+
         if type(source) is dict:
             self.__dict__.update(source)
         elif type(source) is list:

@@ -1,7 +1,8 @@
+import os
 import sys
 import time
-
 import tensorflow as tf
+
 
 from .utils.general import init_dir, get_logger
 
@@ -21,7 +22,8 @@ class BaseModel(object):
         self._dir_output = dir_output
         init_dir(self._dir_output)
         self.logger = get_logger(self._dir_output + "model.log")
-        tf.reset_default_graph()  # saveguard if previous model was defined
+        tf.reset_default_graph() # saveguard if previous model was defined
+
 
     def build_train(self, config=None):
         """To overwrite with model-specific logic
@@ -33,9 +35,11 @@ class BaseModel(object):
         """
         raise NotImplementedError
 
+
     def build_pred(self, config=None):
         """Similar to build_train but no need to define train_op"""
         raise NotImplementedError
+
 
     def _add_train_op(self, lr_method, lr, loss, clip=-1):
         """Defines self.train_op that performs an update on a batch
@@ -47,10 +51,10 @@ class BaseModel(object):
             clip: (python float) clipping of gradient. If < 0, no clipping
 
         """
-        _lr_m = lr_method.lower()  # lower to make sure
+        _lr_m = lr_method.lower() # lower to make sure
 
         with tf.variable_scope("train_step"):
-            if _lr_m == 'adam':  # sgd method
+            if _lr_m == 'adam': # sgd method
                 optimizer = tf.train.AdamOptimizer(lr)
             elif _lr_m == 'adagrad':
                 optimizer = tf.train.AdagradOptimizer(lr)
@@ -64,18 +68,20 @@ class BaseModel(object):
             # for batch norm beta gamma
             update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
             with tf.control_dependencies(update_ops):
-                if clip > 0:  # gradient clipping if clip is positive
-                    grads, vs = zip(*optimizer.compute_gradients(loss))
-                    grads, gnorm = tf.clip_by_global_norm(grads, clip)
+                if clip > 0: # gradient clipping if clip is positive
+                    grads, vs     = zip(*optimizer.compute_gradients(loss))
+                    grads, gnorm  = tf.clip_by_global_norm(grads, clip)
                     self.train_op = optimizer.apply_gradients(zip(grads, vs))
                 else:
                     self.train_op = optimizer.minimize(loss)
+
 
     def init_session(self):
         """Defines self.sess, self.saver and initialize the variables"""
         self.sess = tf.Session()
         self.sess.run(tf.global_variables_initializer())
         self.saver = tf.train.Saver()
+
 
     def restore_session(self, dir_model):
         """Reload weights into session
@@ -86,10 +92,8 @@ class BaseModel(object):
 
         """
         self.logger.info("Reloading the latest trained model...")
-        ckpt = tf.train.get_checkpoint_state(dir_model)
-        if ckpt and ckpt.model_checkpoint_path:
-            self.saver.restore(self.sess, ckpt.model_checkpoint_path)
-        # self.saver.restore(self.sess, dir_model)
+        self.saver.restore(self.sess, dir_model)
+
 
     def save_session(self):
         """Saves session"""
@@ -109,9 +113,11 @@ class BaseModel(object):
         sys.stdout.flush()
         self.logger.info("- Saved model in {}".format(dir_model))
 
+
     def close_session(self):
         """Closes the session"""
         self.sess.close()
+
 
     def _add_summary(self):
         """Defines variables for Tensorboard
@@ -120,8 +126,10 @@ class BaseModel(object):
             dir_output: (string) where the results are written
 
         """
-        self.merged = tf.summary.merge_all()
-        self.file_writer = tf.summary.FileWriter(self._dir_output, self.sess.graph)
+        self.merged      = tf.summary.merge_all()
+        self.file_writer = tf.summary.FileWriter(self._dir_output,
+                self.sess.graph)
+
 
     def train(self, config, train_set, val_set, lr_schedule):
         """Global training procedure
@@ -145,17 +153,17 @@ class BaseModel(object):
         for epoch in range(config.n_epochs):
             # logging
             tic = time.time()
-            self.logger.info("Epoch {:}/{:}".format(epoch + 1, config.n_epochs))
+            self.logger.info("Epoch {:}/{:}".format(epoch+1, config.n_epochs))
 
             # epoch
             score = self._run_epoch(config, train_set, val_set, epoch,
-                                    lr_schedule)
+                    lr_schedule)
 
             # save weights if we have new best score on eval
             if best_score is None or score >= best_score:
                 best_score = score
                 self.logger.info("- New best score ({:04.2f})!".format(
-                    best_score))
+                        best_score))
                 self.save_session()
             if lr_schedule.stop_training:
                 self.logger.info("- Early Stopping.")
@@ -164,9 +172,10 @@ class BaseModel(object):
             # logging
             toc = time.time()
             self.logger.info("- Elapsed time: {:04.2f}, lr: {:04.5f}".format(
-                toc - tic, lr_schedule.lr))
+                            toc-tic, lr_schedule.lr))
 
         return best_score
+
 
     def _run_epoch(config, train_set, val_set, epoch, lr_schedule):
         """Model_specific method to overwrite
@@ -186,6 +195,7 @@ class BaseModel(object):
 
         """
         raise NotImplementedError
+
 
     def evaluate(self, config, test_set):
         """Evaluates model on test set
@@ -211,10 +221,11 @@ class BaseModel(object):
         sys.stdout.write("\r")
         sys.stdout.flush()
         msg = " - ".join(["{} {:04.2f}".format(k, v)
-                          for k, v in scores.items()])
+                for k, v in scores.items()])
         self.logger.info("- Eval: {}".format(msg))
 
         return scores
+
 
     def _run_evaluate(config, test_set):
         """Model-specific method to overwrite

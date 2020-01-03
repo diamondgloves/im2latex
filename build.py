@@ -6,6 +6,7 @@ from model.utils.text import build_vocab, write_vocab
 from model.utils.image import build_images
 from model.utils.general import Config
 
+
 @click.command()
 @click.option('--data', default="configs/data_small.json",
         help='Path to data json config')

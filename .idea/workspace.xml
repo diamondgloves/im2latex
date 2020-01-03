@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="27a43b4c-1331-4019-9daa-3ef2e958f9f6" name="Default Changelist" comment="Sync with the develop branch of https://github.com/guillaumegenthial/im2latex">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/small.formulas.norm.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/test.formulas.norm.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/train.formulas.norm.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/val.formulas.norm.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/components/beam_search_decoder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/components/beam_search_decoder_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/components/beam_search_optimization.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/components/beam_search_optimization_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/components/dynamic_rnn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/components/greedy_decoder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.py" beforeDir="false" afterPath="$PROJECT_DIR$/build.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/configs/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/model.json" beforeDir="false" afterPath="$PROJECT_DIR$/configs/model.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/training_small.json" beforeDir="false" afterPath="$PROJECT_DIR$/configs/training_small.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/components/attention_cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/components/attention_cell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/components/beam_search_decoder_cell.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/components/dynamic_decode.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/components/dynamic_decode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/components/greedy_decoder_cell.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/components/positional.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/components/positional.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/decoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/decoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/encoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/encoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/evaluation/text.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/evaluation/text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/img2seq.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/img2seq.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/utils/data_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/utils/data_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/utils/general.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/utils/general.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/utils/image.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/utils/image.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/utils/text.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/utils/text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/predict.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="im2latex" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="XiangyuShi" />
+        <option value="Sxy" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1SaXgHvDruNHC56wScF117U3JPH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="full.screen.before.presentation.mode" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings>
+        <option name="useSoftWraps" value="true" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.positional">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="im2latex" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="positional" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="im2latex" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/model/components" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model/components/positional.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="predict" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="im2latex" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/predict.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="im2latex" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.predict" />
+        <item itemvalue="Python.positional" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.predict" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_FROM_SOURCE" value="true" />
+    <option name="ACTIVE_ACTIONS" value=",SHOW_INHERITED" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="27a43b4c-1331-4019-9daa-3ef2e958f9f6" name="Default Changelist" comment="" />
+      <created>1571386068934</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571386068934</updated>
+      <workItem from="1571386072803" duration="1780000" />
+      <workItem from="1571392408266" duration="2739000" />
+      <workItem from="1571802172465" duration="66000" />
+      <workItem from="1571802297417" duration="363000" />
+      <workItem from="1571802791558" duration="1840000" />
+      <workItem from="1571805586520" duration="22250000" />
+      <workItem from="1572178693669" duration="12299000" />
+      <workItem from="1572446761552" duration="120000" />
+      <workItem from="1572449955888" duration="3414000" />
+      <workItem from="1572788486252" duration="346000" />
+      <workItem from="1573466727908" duration="109000" />
+      <workItem from="1573467321277" duration="4443000" />
+      <workItem from="1574747560600" duration="19730000" />
+      <workItem from="1575466492557" duration="1859000" />
+      <workItem from="1575626042800" duration="73000" />
+      <workItem from="1575626130284" duration="8603000" />
+      <workItem from="1576047503579" duration="30750000" />
+      <workItem from="1576918954420" duration="23030000" />
+      <workItem from="1578060687808" duration="1990000" />
+    </task>
+    <task id="LOCAL-00001" summary="add original project files">
+      <created>1574763037874</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574763037874</updated>
+    </task>
+    <task id="LOCAL-00002" summary="代码整理">
+      <created>1575468135723</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575468135723</updated>
+    </task>
+    <task id="LOCAL-00003" summary="格式整理:image.py/img2seq.py">
+      <created>1575967402041</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1575967402041</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add BatchNorm operation">
+      <created>1576149369136</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1576149369136</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add position embedding method with Normal Distribution">
+      <created>1576648184073</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1576648184073</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add data files">
+      <created>1578063534287</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1578063534287</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
+    <MESSAGE value="add original project files" />
+    <MESSAGE value="代码整理" />
+    <MESSAGE value="格式整理:image.py/img2seq.py" />
+    <MESSAGE value="格式整理img2seq.py&#10;&#10;Signed-off-by: diamondgloves &lt;343600153@qq.com&gt;" />
+    <MESSAGE value="add BatchNorm operation" />
+    <MESSAGE value="add position embedding method with Normal Distribution" />
+    <MESSAGE value="add data files" />
+    <MESSAGE value="Sync with the develop branch of https://github.com/guillaumegenthial/im2latex" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sync with the develop branch of https://github.com/guillaumegenthial/im2latex" />
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="0" y="69" key="#Deployment" timestamp="1576149363867">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="0" y="69" key="#Deployment/0.0.1440.900@0.0.1440.900" timestamp="1576149363867" />
+    <state x="293" y="45" key="#Notifications" timestamp="1578060373238">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="220" y="34" key="#Notifications/0.0.1440.900@0.0.1440.900" timestamp="1576657271028" />
+    <state x="293" y="45" key="#Notifications/0.0.1920.1200@0.0.1920.1200" timestamp="1578060373238" />
+    <state x="576" y="211" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1576648097944">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="576" y="211" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1576648097944" />
+    <state x="397" y="94" width="917" height="1106" key="CommitChangelistDialog2" timestamp="1578064001256">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="378" y="176" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1576149368932" />
+    <state x="504" y="211" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1575967444286" />
+    <state x="397" y="94" width="917" height="1106" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1578064001256" />
+    <state x="100" y="87" width="1720" height="1000" key="DiffContextDialog" timestamp="1578063823497">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="100" y="100" width="1720" height="880" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1575967550998" />
+    <state x="100" y="87" width="1720" height="1000" key="DiffContextDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1578063823497" />
+    <state x="100" y="100" width="1720" height="880" key="DiffContextDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1575967833007" />
+    <state x="100" y="87" width="1720" height="1000" key="DiffContextDialog/0.23.1920.1177@0.23.1920.1177" timestamp="1576051916272" />
+    <state x="760" y="457" key="GitRewordDialog" timestamp="1575967498602">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="760" y="457" key="GitRewordDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1575967498602" />
+    <state width="1386" height="320" key="GridCell.Tab.0.bottom" timestamp="1576754234863">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1386" height="320" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1576754234863" />
+    <state width="1866" height="453" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1576642500133" />
+    <state width="1386" height="320" key="GridCell.Tab.0.center" timestamp="1576754234863">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1386" height="320" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1576754234863" />
+    <state width="1866" height="453" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1576642500131" />
+    <state width="1386" height="320" key="GridCell.Tab.0.left" timestamp="1576754234862">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1386" height="320" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1576754234862" />
+    <state width="1866" height="453" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1576642500131" />
+    <state width="1386" height="320" key="GridCell.Tab.0.right" timestamp="1576754234863">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1386" height="320" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1576754234863" />
+    <state width="1866" height="453" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1576642500132" />
+    <state width="1386" height="320" key="GridCell.Tab.1.bottom" timestamp="1576754234865">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1386" height="320" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1576754234865" />
+    <state width="1866" height="453" key="GridCell.Tab.1.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1576642500135" />
+    <state width="1386" height="320" key="GridCell.Tab.1.center" timestamp="1576754234864">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1386" height="320" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1576754234864" />
+    <state width="1866" height="453" key="GridCell.Tab.1.center/0.0.1920.1200@0.0.1920.1200" timestamp="1576642500133" />
+    <state width="1386" height="320" key="GridCell.Tab.1.left" timestamp="1576754234864">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1386" height="320" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1576754234864" />
+    <state width="1866" height="453" key="GridCell.Tab.1.left/0.0.1920.1200@0.0.1920.1200" timestamp="1576642500133" />
+    <state width="1386" height="320" key="GridCell.Tab.1.right" timestamp="1576754234864">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1386" height="320" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1576754234864" />
+    <state width="1866" height="453" key="GridCell.Tab.1.right/0.0.1920.1200@0.0.1920.1200" timestamp="1576642500134" />
+    <state x="277" y="189" key="IDE.errors.dialog" timestamp="1578060320028">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="208" y="142" key="IDE.errors.dialog/0.0.1440.900@0.0.1440.900" timestamp="1576744248000" />
+    <state x="277" y="189" key="IDE.errors.dialog/0.0.1920.1200@0.0.1920.1200" timestamp="1578060320028" />
+    <state x="192" y="109" key="MergeDialog" timestamp="1578064125745">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="192" y="109" key="MergeDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1578064125745" />
+    <state x="416" y="257" width="893" height="686" key="MultipleFileMergeDialog" timestamp="1578064164610">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="416" y="257" width="893" height="686" key="MultipleFileMergeDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1578064164610" />
+    <state x="160" y="1" key="SettingsEditor" timestamp="1577522392895">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="120" y="1" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1576744197009" />
+    <state x="160" y="1" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1577522392895" />
+    <state x="704" y="229" key="VCS.ChangeListViewerDialog" timestamp="1578060618636">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="704" y="229" key="VCS.ChangeListViewerDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1578060618636" />
+    <state x="206" y="94" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1" timestamp="1576139123385">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="206" y="94" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1/0.0.1440.900@0.0.1440.900" timestamp="1576139123385" />
+    <state x="100" y="100" width="1720" height="1000" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1578059995194">
+      <screen x="0" y="23" width="1920" height="1177" />
+    </state>
+    <state x="100" y="100" width="1720" height="1000" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1920.1177@0.23.1920.1177" timestamp="1578059995194" />
+    <state x="448" y="337" key="com.intellij.ide.util.TipDialog" timestamp="1576918955699">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="448" y="337" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1576918955699" />
+    <state x="597" y="430" key="com.intellij.ide.util.TipDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1576047513003" />
+    <state x="506" y="131" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1575781267794">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="506" y="131" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1440.900@0.0.1440.900" timestamp="1575781267794" />
+    <state x="498" y="356" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576657386229">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="498" y="356" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1576657386229" />
+    <state x="185" y="134" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1576145553968">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="185" y="134" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1440.900@0.0.1440.900" timestamp="1576145553968" />
+    <state x="702" y="255" key="git4idea.branch.GitSmartOperationDialog" timestamp="1578063558518">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="702" y="255" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1578063558518" />
+    <state x="729" y="483" key="git4idea.ui.GitResetDialog" timestamp="1578060619584">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="729" y="483" key="git4idea.ui.GitResetDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1578060619584" />
+    <state width="750" height="530" key="javadoc.popup" timestamp="1576744140903">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="750" height="530" key="javadoc.popup/0.0.1440.900@0.0.1440.900" timestamp="1576744140903" />
+    <state x="425" y="23" key="refactoring.ChangeSignatureDialog" timestamp="1576677018522">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="425" y="23" key="refactoring.ChangeSignatureDialog/0.0.1440.900@0.0.1440.900" timestamp="1576677018522" />
+    <state x="541" y="168" key="search.everywhere.popup" timestamp="1577974629364">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="541" y="168" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1577974629364" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="x_positioned[0]" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/im2latex$positional.coverage" NAME="positional Coverage Results" MODIFIED="1576754232431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model/components" />
+    <SUITE FILE_PATH="coverage/im2latex$test.coverage" NAME="test Coverage Results" MODIFIED="1576136891000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

@@ -12,12 +12,14 @@ class Vocab(object):
     def load_vocab(self):
         special_tokens = [self.config.unk, self.config.pad, self.config.end]
         self.tok_to_id = load_tok_to_id(self.config.path_vocab, special_tokens)
-        self.id_to_tok = {idx: tok for tok, idx in self.tok_to_id.items()}
+        self.id_to_tok = {idx: tok for tok, idx in self.tok_to_id.iteritems()}
         self.n_tok = len(self.tok_to_id)
 
         self.id_pad = self.tok_to_id[self.config.pad]
         self.id_end = self.tok_to_id[self.config.end]
         self.id_unk = self.tok_to_id[self.config.unk]
+
+        print("Loaded vocab of size {}".format(len(self.tok_to_id)))
 
 
     @property
@@ -131,10 +133,13 @@ def pad_batch_formulas(formulas, id_pad, id_end, max_len=None):
     """
     if max_len is None:
         max_len = max(map(lambda x: len(x), formulas))
-    batch_formulas = id_pad * np.ones([len(formulas), max_len+1],dtype=np.int32)
+
+    batch_formulas = id_pad * np.ones([len(formulas), max_len+1],
+            dtype=np.int32)
     formula_length = np.zeros(len(formulas), dtype=np.int32)
     for idx, formula in enumerate(formulas):
-        batch_formulas[idx, :len(formula)] = np.asarray(formula,dtype=np.int32)
+        batch_formulas[idx, :len(formula)] = np.asarray(formula,
+                dtype=np.int32)
         batch_formulas[idx, len(formula)]  = id_end
         formula_length[idx] = len(formula) + 1
 
@@ -146,8 +151,6 @@ def load_formulas(filename):
     with open(filename) as f:
         for idx, line in enumerate(f):
             formulas[idx] = line.strip()
-    try:
-        print("Loaded {} formulas from {}".format(len(formulas), filename))
-    except:
-        print("Loaded {} formulas from {}".format(len(list(formulas)), filename))
+
+    print("Loaded {} formulas from {}".format(len(formulas), filename))
     return formulas

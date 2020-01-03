@@ -29,25 +29,27 @@ class Encoder(object):
 
         with tf.variable_scope("convolutional_encoder"):
             # conv + max pool -> /2
-            out = tf.layers.conv2d(img, 64, 3, 1, "SAME", activation=tf.nn.relu)
+            out = tf.layers.conv2d(img, 64, 3, 1, "SAME",
+                    activation=tf.nn.relu)
             out = tf.layers.max_pooling2d(out, 2, 2, "SAME")
 
             # conv + max pool -> /2
-            out = tf.layers.conv2d(out, 128, 3, 1, "SAME", activation=tf.nn.relu)
+            out = tf.layers.conv2d(out, 128, 3, 1, "SAME",
+                    activation=tf.nn.relu)
             out = tf.layers.max_pooling2d(out, 2, 2, "SAME")
 
             # regular conv -> id
-            out = tf.layers.conv2d(out, 256, 3, 1, "SAME")
-            out = tf.layers.batch_normalization(out, training=training)
-            out = tf.nn.relu(out)
-            out = tf.layers.conv2d(out, 256, 3, 1, "SAME", activation=tf.nn.relu)
+            out = tf.layers.conv2d(out, 256, 3, 1, "SAME",
+                    activation=tf.nn.relu)
+
+            out = tf.layers.conv2d(out, 256, 3, 1, "SAME",
+                    activation=tf.nn.relu)
 
             if self._config.encoder_cnn == "vanilla":
-                out = tf.layers.max_pooling2d(out, (2, 1), (2, 1), "SAME")   #pooling size: H，W = 2，1
+                out = tf.layers.max_pooling2d(out, (2, 1), (2, 1), "SAME")
 
-            out = tf.layers.conv2d(out, 512, 3, 1, "SAME")
-            out = tf.layers.batch_normalization(out, training=training)
-            out = tf.nn.relu(out)
+            out = tf.layers.conv2d(out, 512, 3, 1, "SAME",
+                    activation=tf.nn.relu)
 
             if self._config.encoder_cnn == "vanilla":
                 out = tf.layers.max_pooling2d(out, (1, 2), (1, 2), "SAME")
@@ -57,9 +59,8 @@ class Encoder(object):
                 out = tf.layers.conv2d(out, 512, (2, 4), 2, "SAME")
 
             # conv
-            out = tf.layers.conv2d(out, 512, 3, 1, "VALID")
-            out = tf.layers.batch_normalization(out, training=training)
-            out = tf.nn.relu(out)
+            out = tf.layers.conv2d(out, 512, 3, 1, "VALID",
+                    activation=tf.nn.relu)
 
             if self._config.positional_embeddings:
                 # from tensor2tensor lib - positional embeddings

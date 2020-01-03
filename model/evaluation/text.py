@@ -1,9 +1,12 @@
-import distance
-import nltk
+import os
+import sys
 import numpy as np
+import nltk
+import distance
 
-from ..utils.general import init_dir
+
 from ..utils.text import load_formulas
+from ..utils.general import init_dir
 
 
 def score_files(path_ref, path_hyp):

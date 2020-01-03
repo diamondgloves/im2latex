@@ -1,4 +1,5 @@
 import click
+import time
 
 
 from model.utils.data_generator import DataGenerator
@@ -28,21 +29,15 @@ def main(data, vocab, training, model, output):
     vocab = Vocab(config)
 
     # Load datasets
-    train_set = DataGenerator(
-            path_formulas=config.path_formulas_train,
-            dir_images=config.dir_images_train, 
-            img_prepro=greyscale,
-            max_iter=config.max_iter, 
-            bucket=config.bucket_train,
+    train_set = DataGenerator(path_formulas=config.path_formulas_train,
+            dir_images=config.dir_images_train, img_prepro=greyscale,
+            max_iter=config.max_iter, bucket=config.bucket_train,
             path_matching=config.path_matching_train,
             max_len=config.max_length_formula,
             form_prepro=vocab.form_prepro)
-    val_set = DataGenerator(
-            path_formulas=config.path_formulas_val,
-            dir_images=config.dir_images_val, 
-            img_prepro=greyscale,
-            max_iter=config.max_iter, 
-            bucket=config.bucket_val,
+    val_set = DataGenerator(path_formulas=config.path_formulas_val,
+            dir_images=config.dir_images_val, img_prepro=greyscale,
+            max_iter=config.max_iter, bucket=config.bucket_val,
             path_matching=config.path_matching_val,
             max_len=config.max_length_formula,
             form_prepro=vocab.form_prepro)
@@ -50,8 +45,7 @@ def main(data, vocab, training, model, output):
     # Define learning rate schedule
     n_batches_epoch = ((len(train_set) + config.batch_size - 1) //
                         config.batch_size)
-    lr_schedule = LRSchedule(
-            lr_init=config.lr_init,
+    lr_schedule = LRSchedule(lr_init=config.lr_init,
             start_decay=config.start_decay*n_batches_epoch,
             end_decay=config.end_decay*n_batches_epoch,
             end_warm=config.end_warm*n_batches_epoch,
@@ -61,6 +55,12 @@ def main(data, vocab, training, model, output):
     # Build model and train
     model = Img2SeqModel(config, dir_output, vocab)
     model.build_train(config)
+    model.restore_session("results/google/under_50_vanilla_positional/model.weights/")
+
+    config_eval = Config({"dir_answers": model._dir_output + "formulas_val/",
+                "batch_size": config.batch_size})
+    scores = model.evaluate(config_eval, val_set)
+
     model.train(config, train_set, val_set, lr_schedule)
 
 

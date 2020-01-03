@@ -1,11 +1,17 @@
+import numpy as np
 import tensorflow as tf
-from tensorflow.contrib.rnn import LSTMCell
+from tensorflow.python.util import nest
+import tensorflow.contrib.layers as layers
+from tensorflow.contrib.rnn import GRUCell, LSTMCell
 
-from .components.attention_cell import AttentionCell
-from .components.attention_mechanism import AttentionMechanism
-from .components.beam_search_decoder_cell import BeamSearchDecoderCell
-from .components.dynamic_decode import dynamic_decode
-from .components.greedy_decoder_cell import GreedyDecoderCell
+
+from components.dynamic_decode import dynamic_decode
+from components.attention_mechanism import AttentionMechanism
+from components.attention_cell import AttentionCell
+from components.greedy_decoder import GreedyDecoderCell
+from components.beam_search_decoder import BeamSearchDecoderCell
+from components.beam_search_optimization import BSOCell, bso_cross_entropy, bso_loss
+from components.dynamic_rnn import dynamic_rnn
 
 
 class Decoder(object):
@@ -41,6 +47,7 @@ class Decoder(object):
                 shape=[dim_embeddings], initializer=embedding_initializer())
 
         batch_size = tf.shape(img)[0]
+        decoder_output = {}
 
         # training
         with tf.variable_scope("attn_cell", reuse=False):
@@ -52,8 +59,9 @@ class Decoder(object):
             attn_cell = AttentionCell(recu_cell, attn_meca, dropout,
                     self._config.attn_cell_config, self._n_tok)
 
-            train_outputs, _ = tf.nn.dynamic_rnn(attn_cell, embeddings,
+            train_outputs, _ = tf.nn.dynamic_rnn(attn_cell, embeddings[:, :-1, :],
                     initial_state=attn_cell.initial_state())
+            decoder_output["train"] = train_outputs
 
         # decoding
         with tf.variable_scope("attn_cell", reuse=True):
@@ -71,11 +79,18 @@ class Decoder(object):
                 decoder_cell = BeamSearchDecoderCell(E, attn_cell, batch_size,
                         start_token, self._id_end, self._config.beam_size,
                         self._config.div_gamma, self._config.div_prob)
+                if self._config.beam_search_optimization:
+                    mistake_function = bso_loss
+                    bso_cell = BSOCell(decoder_cell, mistake_function)
+                    bso_outputs, _ = dynamic_rnn(bso_cell, formula,
+                            initial_state=bso_cell.initial_state)
+                    decoder_output["bso"] = bso_outputs
 
             test_outputs, _ = dynamic_decode(decoder_cell,
                     self._config.max_length_formula+1)
+            decoder_output["pred"] = test_outputs
 
-        return train_outputs, test_outputs
+        return decoder_output
 
 
 def get_embeddings(formula, E, dim, start_token, batch_size):
@@ -96,7 +111,7 @@ def get_embeddings(formula, E, dim, start_token, batch_size):
     formula_ = tf.nn.embedding_lookup(E, formula)
     start_token_ = tf.reshape(start_token, [1, 1, dim])
     start_tokens = tf.tile(start_token_, multiples=[batch_size, 1, 1])
-    embeddings = tf.concat([start_tokens, formula_[:, :-1, :]], axis=1)
+    embeddings = tf.concat([start_tokens, formula_[:, :, :]], axis=1)
 
     return embeddings
 

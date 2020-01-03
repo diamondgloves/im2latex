@@ -114,8 +114,7 @@ class DataGenerator(object):
             data_buckets[s] += [(img_path, formula_id)]
 
         # write the rest of the buffer
-        # for k, v in data_buckets.iteritems():   py2
-        for k, v in data_buckets.items():
+        for k, v in data_buckets.iteritems():
             for (img_path, formula_id) in v:
                 bucketed_dataset += [(img_path, formula_id)]
 
