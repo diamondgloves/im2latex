@@ -160,7 +160,7 @@ class Img2SeqModel(BaseModel):
         config_eval = Config({"dir_answers": self._dir_output + "formulas_val/",
                               "batch_size": config.batch_size})
         scores = self.evaluate(config_eval, val_set)
-        score = scores[config.metric_val]
+        score = scores[config.metric_val]   #config.metric_val: BLEU-4, EM, Edit, perplexity
         lr_schedule.update(score=score)
 
         return score
@@ -209,7 +209,7 @@ class Img2SeqModel(BaseModel):
         files = write_answers(refs, hyps, self._vocab.id_to_tok,
                               config.dir_answers, self._vocab.id_end)
 
-        perp = - np.exp(ce_words / float(n_words))
+        perp = np.exp(ce_words / float(n_words))
 
         return files, perp
 
