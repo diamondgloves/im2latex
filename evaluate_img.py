@@ -1,5 +1,5 @@
 import click
-
+from os import path
 
 from model.utils.data_generator import DataGenerator
 from model.img2seq import Img2SeqModel
@@ -36,10 +36,10 @@ def main(results):
 
 
     # build images from formulas
-    formula_ref = dir_output + "formulas_test/ref.txt"
-    formula_hyp = dir_output + "formulas_test/hyp_0.txt"
-    images_ref  = dir_output + "images_test/ref/"
-    images_test = dir_output + "images_test/hyp_0/"
+    formula_ref = path.join(dir_output, "formulas_test/ref.txt")
+    formula_hyp = path.join(dir_output, "formulas_test/hyp_0.txt")
+    images_ref  = path.join(dir_output, "images_test/ref/")
+    images_test = path.join(dir_output, "images_test/hyp_0/")
     build_images(load_formulas(formula_ref), images_ref)
     build_images(load_formulas(formula_hyp), images_test)
 

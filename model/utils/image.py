@@ -1,4 +1,4 @@
-import numpy as np
+from os.path import join
 from multiprocessing import Pool
 
 import PIL
@@ -154,44 +154,45 @@ def convert_to_png(formula, dir_output, name, quality=100, density=200,
 
     """
     # write formula into a .tex file
-    with open(dir_output + "{}.tex".format(name), "w") as f:
+    with open(join(dir_output, "{}.tex".format(name)), "w") as f:
         f.write(
     r"""\documentclass[preview]{standalone}
+    \usepackage{amsmath}
     \begin{document}
-        $$ %s $$
+        \[ %s \]
     \end{document}""" % (formula))
 
     # call pdflatex to create pdf
     run("pdflatex -interaction=nonstopmode -output-directory={} {}".format(
-        dir_output, dir_output+"{}.tex".format(name)), TIMEOUT)
+        dir_output, join(dir_output,"{}.tex").format(name)), TIMEOUT)
 
-    # call magick to convert the pdf into a png file
-    run("magick convert -density {} -quality {} {} {}".format(density, quality,
-        dir_output+"{}.pdf".format(name), dir_output+"{}.png".format(name)),
-        TIMEOUT)
-
-    # cropping and downsampling
-    img_path = dir_output + "{}.png".format(name)
-
-    try:
-        crop_image(img_path, img_path)
-        pad_image(img_path, img_path, buckets=buckets)
-        downsample_image(img_path, img_path, down_ratio)
-        clean(dir_output, name)
-
-        return "{}.png".format(name)
-
-    except (Exception, e):
-        print(e)
-        clean(dir_output, name)
-        return False
+    # # call magick to convert the pdf into a png file
+    # run("magick convert -density {} -quality {} {} {}".format(density, quality,
+    #     join(dir_output, "{}.pdf".format(name)), join(dir_output, "{}.png".format(name))),
+    #     TIMEOUT)
+    #
+    # # cropping and downsampling
+    # img_path = join(dir_output, "{}.png".format(name))
+    #
+    # try:
+    #     crop_image(img_path, img_path)
+    #     pad_image(img_path, img_path, buckets=buckets)
+    #     downsample_image(img_path, img_path, down_ratio)
+    #     clean(dir_output, name)
+    #
+    #     return "{}.png".format(name)
+    #
+    # except Exception as e:
+    #     print(e)
+    #     clean(dir_output, name)
+    #     return False
 
 
 def clean(dir_output, name):
-    delete_file(dir_output+"{}.aux".format(name))
-    delete_file(dir_output+"{}.log".format(name))
-    delete_file(dir_output+"{}.pdf".format(name))
-    delete_file(dir_output+"{}.tex".format(name))
+    delete_file(join(dir_output, "{}.aux".format(name)))
+    delete_file(join(dir_output, "{}.log".format(name)))
+    delete_file(join(dir_output, "{}.pdf".format(name)))
+    delete_file(join(dir_output, "{}.tex".format(name)))
 
 
 def build_image(item):
@@ -218,7 +219,7 @@ def build_images(formulas, dir_images, quality=100, density=200, down_ratio=2,
     init_dir(dir_images)
     existing_idx = sorted(set([int(file_name.split('.')[0]) for file_name in
             get_files(dir_images) if file_name.split('.')[-1] == "png"]))
-
+    print(formulas[0])
     pool   = Pool(n_threads)
     result = pool.map(build_image, [(idx, form, dir_images, quality, density,
             down_ratio, buckets) for idx, form in formulas.items()
