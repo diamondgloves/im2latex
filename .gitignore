@@ -1,1 +1,9 @@
 .idea/
+*.pyc
+.DS_Store
+.gitignore
+*.log
+data/
+images_ref/
+results/
+formula_ref.txt

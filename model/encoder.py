@@ -38,7 +38,8 @@ class Encoder(object):
 
             # regular conv -> id
             out = tf.layers.conv2d(out, 256, 3, 1, "SAME")
-            out = tf.layers.batch_normalization(out, training=training)
+            if self._config.encoder_cnn == 'vanilla_BN':
+                out = tf.layers.batch_normalization(out, training=training)
             out = tf.nn.relu(out)
             out = tf.layers.conv2d(out, 256, 3, 1, "SAME", activation=tf.nn.relu)
 
@@ -46,7 +47,8 @@ class Encoder(object):
                 out = tf.layers.max_pooling2d(out, (2, 1), (2, 1), "SAME")   #pooling size: H，W = 2，1
 
             out = tf.layers.conv2d(out, 512, 3, 1, "SAME")
-            out = tf.layers.batch_normalization(out, training=training)
+            if self._config.encoder_cnn == 'vanilla_BN':
+                out = tf.layers.batch_normalization(out, training=training)
             out = tf.nn.relu(out)
 
             if self._config.encoder_cnn == "vanilla":
@@ -58,7 +60,8 @@ class Encoder(object):
 
             # conv
             out = tf.layers.conv2d(out, 512, 3, 1, "VALID")
-            out = tf.layers.batch_normalization(out, training=training)
+            if self._config.encoder_cnn == 'vanilla_BN':
+                out = tf.layers.batch_normalization(out, training=training)
             out = tf.nn.relu(out)
 
             if self._config.positional_embeddings:
